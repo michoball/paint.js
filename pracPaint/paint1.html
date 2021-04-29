@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="paint1.css" />
+
+    <title>pracPaint1</title>
+  </head>
+  <body>
+    <canvas id="canvasJs" class="cssCanvas"></canvas>
+    <div class="controls">
+      <div class="range_controls">
+        <input
+          type="range"
+          id="rangeJs"
+          min="0.1"
+          max="5.0"
+          value="2.5"
+          step="0.1"
+        />
+      </div>
+      <div class="btn_controls">
+        <button id="ModeJs">Fill</button>
+        <button id="SaveJs">Save</button>
+      </div>
+      <div class="control_color" id="colorJs">
+        <div
+          class="colors_controls colorJs"
+          style="background-color: black"
+        ></div>
+        <div
+          class="colors_controls colorJs"
+          style="background-color: white"
+        ></div>
+        <div
+          class="colors_controls colorJs"
+          style="background-color: red"
+        ></div>
+        <div
+          class="colors_controls colorJs"
+          style="background-color: orange"
+        ></div>
+        <div
+          class="colors_controls colorJs"
+          style="background-color: yellow"
+        ></div>
+        <div
+          class="colors_controls colorJs"
+          style="background-color: green"
+        ></div>
+        <div
+          class="colors_controls"
+          style="background-color: cornflowerblue"
+        ></div>
+      </div>
+      <div class="colors_controls" style="background-color: blue"></div>
+      <div class="colors_controls" style="background-color: purple"></div>
+    </div>
+    <script src="paint1.js"></script>
+  </body>
+</html>
