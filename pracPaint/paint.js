@@ -44,7 +44,7 @@ function onMouseMove(event) {
 
 function handleColorClick(event) {
   const colorr = event.target.style.backgroundColor;
-  console.log(colorr);
+
   ctx.strokeStyle = colorr;
   ctx.fillStyle = colorr;
 }
@@ -64,11 +64,30 @@ function handleMode(event) {
   }
 }
 
+function handleborad(event) {
+  if (filling) {
+    ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
+  }
+}
+
+function handleCM(event) {
+  event.preventDefault();
+}
+
+function handleSave(event) {
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "SAVE_IMG";
+  link.click();
+}
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
+  canvas.addEventListener("click", handleborad);
+  canvas.addEventListener("contextmenu", handleCM);
 }
 
 Array.from(colors).forEach((color) =>
@@ -81,4 +100,8 @@ if (range) {
 
 if (mode) {
   mode.addEventListener("click", handleMode);
+}
+
+if (saveBtn) {
+  saveBtn.addEventListener("click", handleSave);
 }
