@@ -4,6 +4,7 @@ const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const saveBtn = document.getElementById("jsSave");
+const reset = document.getElementById("jsReset");
 
 const INITIAL_COLOR = "black";
 const CANVAS_SIZE_X = 1500;
@@ -19,7 +20,7 @@ ctx.fillStyle = "wheat";
 ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
 ctx.fillStyle = INITIAL_COLOR;
 ctx.strokeStyle = INITIAL_COLOR;
-ctx.lineWidth = 5;
+ctx.lineWidth = 5.1;
 
 function startPainting(event) {
   if (event.button === 0) {
@@ -81,6 +82,14 @@ function handleSave(event) {
   link.download = "SAVE_IMG";
   link.click();
 }
+
+function handleReset(event) {
+  ctx.clearRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
+  ctx.beginPath();
+  range.value = 5;
+  ctx.lineWidth = 5.1;
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
@@ -104,4 +113,8 @@ if (mode) {
 
 if (saveBtn) {
   saveBtn.addEventListener("click", handleSave);
+}
+
+if (reset) {
+  reset.addEventListener("click", handleReset);
 }
